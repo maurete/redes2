@@ -1,0 +1,191 @@
+\documentclass[a4paper]{article}
+%
+% importar el archivo conf/packages.tex
+\include{conf/packages}
+%
+% ===
+% === Propiedades del documento: título, autor, etc
+% ===
+%
+\newcommand{\titulo}{{\large FICH --- UNL}\\Redes y Comunicaciones de datos 2 -- 2010\\TP N° 1}
+\newcommand{\autor}{Fornal, Esteban \and Mastaglia, Nicolás \and Pfarher, Christian \and Torrez, Mauro}
+\newcommand{\fecha}{\today}
+\newcommand{\tituloPDF}{Redes 2 1010 - TP1}
+\newcommand{\autorPDF}{Fornal -- Mastaglis -- Pfarher -- Torrez}
+\newcommand{\asuntoPDF}{TP 1 de Redes 2 2010}
+\newcommand{\clavesPDF}{redes tp 1}
+%
+% importar los archivos conf/config.tex y conf/comandos.tex
+\include{conf/config}
+\include{conf/comandos}
+%
+% ===
+% === Inicio del documento
+% === 
+%
+% todo lo que siga a esto hasta \end{document} será ``typeseteado'' por LaTeX/pdfLaTeX
+\begin{document}
+%
+% crear la página de título
+\maketitle
+%
+% 
+\section*{Ejercicio de ejemplo 1}
+\subsection*{punto a)}
+\consigna{Genere el diagrama de polos y ceros...}
+
+Generamos el diagrama con la función \mono{zplane}.
+{\small
+\begin{verbatim}
+  polos=[ 0.95*exp(j*pi/4); 0.95*exp(-j*pi/4); 0.95*exp(j*pi/4); 0.95*exp(-j*pi/4) ];
+  ceros=[ 0.80*exp(j*pi/6); 0.80*exp(-j*pi/6); 0.80*exp(j*pi/3); 0.80*exp(-j*pi/3) ];
+  zplane( ceros, polos);
+\end{verbatim}
+}
+
+\includegraphics[width=12cm]{img/ej1a}
+\newpage
+\subsection*{punto f)}
+
+\consigna{...esta vez genere la señal con una frecuencia de muestreo de 120Hz...}
+
+{\small
+\verbatiminput{src/ej1f.m}
+}
+\includegraphics[width=16cm]{img/ej1f}
+
+Vemos que ahora la banda de paso ha quedado centrada en $f=15$Hz
+. Esto implica
+que el filtro se comportará distinto para distintas frecuencias de muestreo
+que utilicemos; en particular, para una frecuencia de muestreo $f_m$ la banda
+de paso se centrará en
+$$f=\frac{1}{4}\left(\frac{f_m}{2}\right).$$
+\newpage
+\section*{Ejercicio 2}
+%\consigna{Diseñe un filtro pasa-altos de tipo Butterworth con frecuencia de
+%corte 500 Hz. Para este ejercicio realice todos los pasos del proceso de diseño,
+%comenzando por el diseño analógico y realizando la transformación en frecuencia
+%y la transformación conforme. Para obtener el filtro digital correspondiente,
+%suponga que se procesarán señales con frecuencia de muestreo 2000 Hz. Utilice
+%diferentes órdenes y compare los resultados graficando las respuestas en
+%frecuencia.}
+La función de transferencia que conocemos para un filtro Butterworth es
+\begin{equation*}
+\left| H( j\omega ) \right|^2 = \frac{{G_0}^2}{ 1 + \left(
+	\frac{\omega}{\omega_c} \right)^{2n} } 
+\end{equation*}
+donde $n=$ orden del filtro; $\omega_c=$ frecuencia de corte; y $G_0$ es la
+componente DC (ganancia en la frecuencia cero).
+En términos de $s$, teniendo en cuenta que $s=\sigma+j\omega$, con $\sigma=0$,
+podemos ver que:
+\begin{equation*}
+|H(j\omega)|^2 = \left. H(s)H^*(s)\right|_{s=j\omega}=H(s)H(-s)
+= \frac {{G_0}^2}{1+\left (\frac{-s^2}{\omega_c^2}\right)^n}
+\end{equation*}
+Los polos en esta expresión son los ceros del polinomio de Butterworth $B_n$.
+Por ello podemos escribir la función de transferencia en $s$ de un filtro de
+Butterworth de la forma
+\begin{equation*}
+H(s)=\frac{G_0}{B_n}=\frac{G_0}{\prod_{k=1}^n (s-s_k)/\omega_c}\quad\T{donde}
+\quad s_k=\omega_c e^{j \frac{2 k +n-1}{2n} \pi}
+\end{equation*}
+%
+\subsection*{Paso 1}
+El filtro de Butterworth normalizado ($G_0=1, \omega_c=1$) de grado $n$ viene
+dado por:
+\begin{equation*}
+H(s)=\frac{1}{B_n(s)}=
+	\frac{1}{\prod_{k=1}^n\left[s-e^{j\frac{2k+n-1}{2n}\pi}\right]}
+\end{equation*}
+Los polinomios de Butterworth normalizados de grado 1, 2, 3, 6 son:
+\begin{align*}
+	B_1(s)&=s-e^{j\frac{2+1-1}{2}\pi}=s-e^{j\pi}=s-(\cos\pi+j\sen\pi)
+		=s-(-1+0)\\
+		&=s+1\\
+	B_2(s)&=\left(s-e^{j\frac{2+2-1}{4}\pi}\right)
+		\left(s-e^{j\frac{4+2-1}{4}\pi}\right)
+		=\left(s-e^{j\frac{3}{4}\pi}\right)
+		\left(s-e^{j\frac{5}{4}\pi}\right)\\
+		%&\enspace\vdots\\
+		&=\left[s-\left(\cos\frac{3}{4}\pi+j\sen\frac{3}{4}\pi\right)\right]
+		\left[s-\left(\cos\frac{5}{4}\pi+j\sen\frac{5}{4}\pi\right)\right]\\
+		&=\left[s-\left(-\frac{\sqrt{2}}{2}+j\frac{\sqrt{2}}{2}\right)\right]
+\left[s-\left(-\frac{\sqrt{2}}{2}-j\frac{\sqrt{2}}{2}\right)\right]
+		=\left[s+\frac{\sqrt{2}}{2}(1-j)\right]
+		\left[s+\frac{\sqrt{2}}{2}(1+j)\right]\\
+		%&\enspace\vdots\\
+		&=s^2+s\sqrt{2}+1\\
+	B_3(s)&=\left(s-e^{j\frac{2+3-1}{6}\pi}\right)  \left(s-e^{j
+		\frac{4+3-1}{6}\pi}\right)  \left(s-e^{j\frac{6+3-1}{6}\pi}\right)
+		=\left(s-e^{j\frac{2}{3}\pi}\right)  \left(s-e^{j
+		\pi}\right)  \left(s-e^{j\frac{4}{3}\pi}\right)\\
+		&=\left[s-\left(\cos\frac{2}{3}\pi+j\sen\frac{2}{3}\pi\right)\right]
+		\left[s-\left(\cos\pi+j\sen\pi\right)\right]
+		\left[s-\left(\cos\frac{4}{3}\pi+j\sen\frac{4}{3}\pi\right)\right]\\
+		&=\left[s-\left(-\frac{1}{2}+j\frac{\sqrt{3}}{2}\right)\right]
+		\left[s-\left(-1\right)\right]
+		\left[s-\left(-\frac{1}{2}-j\frac{\sqrt{3}}{2}\right)\right]\\
+		&\enspace\vdots\\
+		&=\left(s+1\right)\left[s^2+s+1\right]\\
+		&=s^3+2s^2+2s+1\\
+\end{align*}
+\subsection*{Paso 2}
+Transformación en frecuencia pasa-bajos $\rightarrow$ pasa-altos:
+\begin{equation*}
+s\rightarrow\frac{\omega_p}{s}=\frac{2\pi500}{s}
+\end{equation*}
+Las funciones de transferencia me quedan:
+\begin{align*}
+H_1(s)&=\frac{1}{B_1\left(\frac{2\pi500}{s}\right)}
+       =\frac{1}{1+\frac{2\pi500}{s}}\\
+%
+H_2(s)&=\frac{1}{B_2\left(\frac{2\pi500}{s}\right)}
+       =\frac{1}{1+\frac{2\pi500}{s}\sqrt{2}+\left(\frac{2\pi500}{s}\right)^2}\\
+%
+H_3(s)&=\frac{1}{B_3\left(\frac{2\pi500}{s}\right)}
+       =\frac{1}{1+2\frac{2\pi500}{s}+2\left(\frac{2\pi500}{s}\right)^2
+             +\left(\frac{2\pi500}{s}\right)^3}\\
+\end{align*}
+\subsection*{Paso 3}
+Trransformación conforme bilineal:
+\begin{equation*}
+	s=\frac{2}{T}\left[\frac{1-z^{-1}}{1+z^{-1}}\right]
+\end{equation*}
+donde $T=1/fm$ es la inversa de la frecuencia de muestreo (2000Hz).
+
+Notar que en este caso, no es utilizable la transformación de Euler, debido a
+que estaría mapeando las frecuencias altas a frecuencias bajas (al lado derecho
+de la circunferencia unidad).
+\begin{align*}
+H_1(z)&=\frac{1}{1+\frac{2\pi500}{\frac{2}{\frac{1}{2000}}
+		                          \left[\frac{1-z^{-1}}{1+z^{-1}}\right]}}
+		=\frac{1}{1+\frac{2\pi500}{4000}\frac{1+z^{-1}}{1-z^{-1}}}
+		=\frac{1}{1+\frac{\pi}{4}\frac{1+z^{-1}}{1-z^{-1}}}\\
+	H_2(z)&=\frac{1}{1+    \frac{2\pi500\sqrt{2}}{   \frac{2}{  \frac{1}{2000}}
+		\left[ \frac{1-z^{-1}}{1+z^{-1}} \right]}    +
+		\frac{(2\pi500)^2}{   \left(  \frac{2}{ \frac{1}{2000} }  
+		\left[ \frac{1-z^{-1}}{1+z^{-1}} \right]   \right)^2   }}
+		=\frac{1}{1+  1.1107\frac{1+z^{-1}}{1-z^{-1}}
+		+ \left(  0.7854\frac{1+z^{-1}}{1-z^{-1}}  \right)^2  }\\
+	H_3(z)&=\frac{1}{1+2\frac{2\pi500}{ 4000\frac{1-z^{-1}}{1+z^{-1}} }+
+		2\frac{(2\pi500)^2}{\left(4000\frac{1-z^{-1}}{1+z^{-1}}\right)^2}+
+		\frac{(2\pi500)^3}{\left(4000\frac{1-z^{-1}}{1+z^{-1}}\right)^3}}\\
+		&=\frac{1}{ 1+1,5708\frac{1+z^{-1}}{1-z^{-1}} +
+		2\left(  0.7854\frac{1+z^{-1}}{1-z^{-1}}  \right)^2+
+		\left(  0.7854\frac{1+z^{-1}}{1-z^{-1}}  \right)^3}%\\
+\end{align*}
+Puedo ahora despejar los resultados en términos de $z$. Se omite este paso aquí
+para evitar la engorrosidad algebraica. Sin embargo, podemos hacer directamente
+en Octave:
+
+{\small
+\verbatiminput{src/ej2.m}
+}
+Vemos las respuestas en frecuencia de estos filtros entre $[0,\pi]$:
+
+\includegraphics[width=14cm]{img/ej2}
+%
+\end{document}
+
+Acá escribo cualquier mierda que se me cante y no sale nada!!!!!!!!!!!!!!
+Como LaTeX encontró \end{document} ni se molesta en seguir procesando lo que sigue.
