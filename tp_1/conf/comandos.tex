@@ -1,0 +1,177 @@
+% comandos.tex
+% en este archivo defino todos los comandos/environment que quiera usar en mi documento.
+%
+% ===
+% === Comandos
+% ===
+% 
+% T: para escribir texto común cuando en modo math
+%    uso: \T{texto que aparecerá en letra normal}
+\newcommand{\T}{\textrm}
+%
+% aclaracion: dibuja un recuadrito aclaratorio, como <quote> en HTML.
+%             uso: \aclaracion{Texto...}
+\newcommand{\aclaracion}[1]{%
+\smallpencil\ \begin{minipage}{0.9\textwidth}
+\vspace*{6pt}{#1}\smallskip\end{minipage}}
+%
+% consigna: parecido a aclaración, pero con texto _slanted_
+%           uso: \consigna{Consigna...}
+\newcommand{\consigna}[1]{%
+\leftpointright\ \parbox[t]{0.9\textwidth}{\textsl{#1}\vspace{8pt}}}
+%
+% pinterno: para representar el producto interno entre los dos argumentos
+%           uso: \pinterno{X}{Y}
+\newcommand{\pinterno}[2]{%
+\left\langle #1 , #2 \right\rangle}
+%
+% === Estilos de texto
+%
+% resalt: resaltado con fondo verde
+%         uso: \resalt{texto resaltado}
+\newcommand{\resalt}{\colorbox{green}}
+%
+% sfbf: texto en negrita + slanted
+%       uso: 
+\newcommand{\sfbf}{\bfseries\textsf}
+%
+% eng: itálica (para palabras en inglés)
+%      uso: \eng{some English text}
+\newcommand{\eng}{\textit}
+%
+% mean: significado de una sigla - slanted
+%       uso: (...) SNCF: \mean{Société Nationale des Chemins de Fer Francais} ...
+\newcommand{\mean}{\textsl}
+\newcommand{\desc}{\textsl}
+%
+% defin: pone en negrita el texto, útil para definiciones
+%        uso: \defin{asshole}: vulgar slang for anus
+\newcommand{\defin}{\textbf}
+%
+% R, N: cambia la tipografía en modo math, probar para ver cómo quedan
+%       uso: \R{R} , \N{N}
+\newcommand{\R}{\mathds}
+\newcommand{\N}{\mathbf}
+%
+% lil: para escribir texto pequeño. más cómodo que { \footnotesize texto pequeño... }
+%      uso: \lil{texto pequeño... }
+\newcommand{\lil}[1]{\footnotesize #1}  %Para texto pequeñooo
+%
+% mono: escribe el texto que le paso como parámetro con letra de ancho fijo
+%       uso: \mono{texto monoespaciado}
+\newcommand{\mono}[1]{{\tt #1}}
+%
+% === Símbolos
+%
+\newcommand{\y}{\wedge}			%Y (Lógica)
+\newcommand{\ve}{\vee}			%O (Lógica)
+\newcommand{\ent}{\supset}		%Entonces (Lógica)
+\newcommand{\dimp}{\leftrightarrow}	%Doble implicativo, equivalencia (Lógica)
+\newcommand{\sii}{\leftrightarrow}	%Si y sólo si (Lógica)
+\newcommand{\equi}{\equiv}		%Equivalencia (Lógica)
+\newcommand{\portanto}{\vdash}		%Por lo tanto (Lógica)
+\newcommand{\por}{\cdot}		%Producto punto
+\newcommand{\RR}[1][1]{\mathds{R}}	%R de reales
+%
+%
+% ===
+% === Environments
+% ===
+% 
+% enunciado: un environment que básicamente tiene el mismo efecto que el
+%            comando consigna.
+%            uso: \begin{enunciado} ... contenido ... \end{enunciado}
+\newenvironment{enunciado}
+{\leftpointright\ \begin{varwidth}[t]{0.9\textwidth}\textsl}
+{\end{varwidth}\vspace{8pt}}
+%
+% pvi: para tipear la definición de un problema de valor inicial/funciones
+%      definidas de a trozos/etc directamente en el texto (sin necesidad de
+%      cambiar a un modo matemático.
+%      uso: \begin{pvi} linea1 \\ linea 2 \\ ... \end{pvi}
+\newenvironment{pvi}{\begin{equation*}\begin{cases}}
+{\end{cases}\end{equation*}}
+%
+% verbatimsmall: un verbatim con letra más chica. usualmente queda bastante
+%                mejor que el verbatim pelado.
+%                uso: \begin{verbatimsmall} ........ \end{verbatimsmall}
+\newenvironment{verbatimsmall}{\small\begin{verbatim*}}
+{\end{verbatim*}}
+%
+%
+% ===
+% === Comandos ``históricos''
+% ===
+%
+%% %\begin{pspicture}
+%% \def\tierra(#1){%Para dibujar el símbolo de tierra en el entorno PSTricks
+%% 	\rput(#1){
+%% 		\psdot(0,0)
+%% 		\psline(0,0)(0,-0.45)
+%% 		\psline(-0.5,-0.45)(0.5,-0.45)
+%% 		\psline(-0.35,-0.6)(0.35,-0.6)
+%% 		\psline(-0.2,-0.75)(0.2,-0.75)
+%% 	}%
+%% }
+%% %\end{pspicture}
+
+%% \newcommand{\codigo}[2]{%Para generar un recuadro con código
+%% 	%\setlength{\hrulewidth}{0.1pt}
+%% 	\begin{flushleft}
+%% 	\underline{#1}
+%% 	\begin{tabular}{@{\quad}|l}
+%% 		\begin{minipage}{.85\textwidth}\smallskip{#2}
+%% 	\end{minipage}\end{tabular}\end{flushleft}%
+%% }
+
+%% \newcommand{\filecodigo}[1]{%Insertar código verbatim desde un archivo
+%% \codigo{#1}{\verbatiminput{#1}}}%Requiere el paquete verbatim
+%% \newcommand{\filecodigobis}[1]{{\verbatiminput{#1}}}%Requiere el paquete verbatim
+
+%% \newcommand{\grafico}[3][1]{%Para generar un plot de un archivo con coords.
+%% %\def\deequis=#1
+%% \begin{minipage}{0.5\textwidth}\begin{center}
+%% \begin{pspicture}(6,5)
+%% 	\psgrid[subgriddiv=1,gridlabels=0pt,gridwidth=.1pt](1,3)(1,1)(6,5)
+%% 	\psset{xunit=5cm,yunit=2cm}
+%% 	\fileplot[linewidth=1pt,linecolor=blue,origin={0.2,1.5}]{#2}
+%% 	\psset{xunit=1cm,yunit=1cm}
+%% 	\psaxes[Dx=#1,dx=5,Oy=-1,Dy=1,dy=2]{-}(0.9,1)(6,5)
+%% 	\rput(4,0.4){\textsl{#3}}
+%% \end{pspicture}\end{center}\end{minipage}}
+
+%% \newcommand{\eqncode}[2]{%
+%% \begin{center}
+%% \begin{tabular}{l@{\hspace{0.5cm}}r}
+%% \begin{minipage}{.4\textwidth}
+%% \begin{equation*}
+%% #1
+%% \end{equation*}
+%% \end{minipage}
+%% &
+%% \fbox{\begin{minipage}{.4\textwidth}
+%% %\setlength{\parskip}{4mm}
+%% \filecodigobis{#2}
+%% \end{minipage}}
+%% \end{tabular}
+%% \end{center}
+%% }
+
+%% \newcommand{\eqncodeb}[2]{%
+%% \begin{center}\begin{tabular}{l@{\hspace{0.5cm}}r}
+%% \begin{minipage}{.4\textwidth}#1\end{minipage} &
+%% \fbox{\begin{minipage}{.4\textwidth}\filecodigobis{#2}\end{minipage}}
+%% \end{tabular}\end{center}}
+
+%% \newenvironment{matemcode}[1]{\newline
+%% \begin{tabular}{l@{\hspace{0.5cm}}r}
+%% \begin{minipage}{.4\textwidth}
+%% \parbox[t]{.4\textwidth}{\begin{equation*}#1\end{equation*}}\end{minipage}
+%% &\begin{Sbox}\begin{minipage}{.4\textwidth}}
+%% {\end{minipage}\end{Sbox}\fbox{\TheSbox}\end{tabular}\newline}
+
+%% \newenvironment{encuadrar}[1]{\begin{Sbox}\begin{varwidth}{#1\textwidth}}
+%% {\end{varwidth}\end{Sbox}\fbox{\TheSbox}}
+
+%% \newenvironment{parboxenv}{\begin{Sbox}}
+%% {\end{Sbox}\parbox[t]{.9\textwidth}{\TheSbox}}

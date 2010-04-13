@@ -1,0 +1,48 @@
+% config.tex: configuraciones del documento
+\selectlanguage{spanish}		%Elijo idioma español
+
+%Permitir que los entornos equation, align, etc permitan saltos de página
+\allowdisplaybreaks[1]
+
+%Tweaks
+\setlength{\parindent}{0mm}		%Sangría de 1a. línea
+\setlength{\hoffset}{-5.4mm}		%
+\setlength{\voffset}{-5.4mm}		%
+\setlength{\topmargin}{0mm}		%
+\setlength{\oddsidemargin}{5mm}	%
+\setlength{\evensidemargin}{5mm}	%
+\setlength{\marginparsep}{5mm}	%
+\setlength{\headheight}{12.5mm}	%
+\setlength{\headsep}{2.5mm}		%
+\setlength{\footskip}{10mm}		%
+\setlength{\textwidth}{15cm}		%
+\setlength{\textheight}{232mm}	%
+\setlength{\fboxrule}{.1pt}
+\setlength{\parskip}{.5\baselineskip}
+
+%Colores
+\definecolor{negro}	{cmyk}{0,0,0,1}
+\definecolor{marron}	{cmyk}{0,.5,1,.41}
+\definecolor{rojo}	{cmyk}{0,1,1,0}
+\definecolor{naranja}	{cmyk}{0,.35,1,0}
+\definecolor{amarillo}	{cmyk}{0,0,1,0}
+\definecolor{verde}	{cmyk}{1,0,1,0}
+\definecolor{azul}	{cmyk}{1,1,0,0}
+\definecolor{violeta}	{cmyk}{.45,1,0,0}
+\definecolor{gris}	{cmyk}{0,0,0,.5}
+\definecolor{blanco}	{cmyk}{0,0,0,0}
+\definecolor{dorado}	{cmyk}{0,.16,1,0}
+\definecolor{plateado}	{cmyk}{0,0,0,.25}
+
+\title{\titulo}
+\author{\autor}
+\date{\fecha}
+
+% si uso pdflatex, me setea las propiedades del pdf de salida
+\ifpdf\pdfinfo{/Title    (\tituloPDF)
+               /Author   (\autorPDF)
+               /Subject  (\asuntoPDF)
+               /Keywords (\clavesPDF)}\fi
+
+
+

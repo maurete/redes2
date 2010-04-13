@@ -1,0 +1,86 @@
+\documentclass[a4paper]{article}
+%
+% importar el archivo conf/packages.tex
+\include{conf/packages}
+%
+% ===
+% === Propiedades del documento: título, autor, etc
+% ===
+%
+\newcommand{\titulo}{{\large FICH --- UNL}\\Redes y Comunicación de Datos 2 -- 2010\\%
+{\large TP1. Análisis de comportamiento y características de distintos integrados.}}
+\newcommand{\autor}{Fornal, Esteban \and Mastaglia, Nicolás \and Pfarher, Christian \and Torrez, Mauro}
+\newcommand{\fecha}{\today}
+\newcommand{\tituloPDF}{Redes 2 1010 - TP1}
+\newcommand{\autorPDF}{Fornal -- Mastaglia -- Pfarher -- Torrez}
+\newcommand{\asuntoPDF}{TP 1 de Redes 2 2010}
+\newcommand{\clavesPDF}{redes tp 1}
+%
+% importar los archivos conf/config.tex y conf/comandos.tex
+\include{conf/config}
+\include{conf/comandos}
+%
+% ===
+% === Inicio del documento
+% === 
+%
+% todo lo que siga a esto hasta \end{document} será ``typeseteado'' por LaTeX/pdfLaTeX
+\begin{document}
+%
+% pongo letra sans-serif (porque sí nomás)
+\sffamily
+%
+% crear la página de título
+\maketitle
+%
+% 
+\section{El integrado DS92LV010A}
+%
+El DS920LV010A es un transceiver de voltajes TTL/CMOS a LVDS --- \desc{Señal diferencial de bajo voltaje}
+diseñado para buses tipo \eng{backplane} como los que podemos encontrar en switches, por ejemplo.
+%
+\begin{description}
+\item[Voltaje de operación] El integrado se puede alimentar con 3.3V ó 5V. La salida LVDS \resalt{ver los voltajes}.
+\item[Umbral de recepción (sensibilidad)] $\pm 100$mV
+\item[Encapsulado] tipo SOIC de 8 \resalt{(leads) pines???}
+\end{description}
+%
+\begin{figure}[h]
+\caption{Dibujo esquemático de una configuración típica punto a punto}
+\end{figure}
+%
+\begin{figure}[h]
+\caption{Dibujo esquemático de una configuración típica multi-disposititvo}
+\end{figure}
+%
+\section{El integrado DS90CR283}
+%
+El DS920LV0 es un \ldots
+
+Soporta la norma \ldots
+
+Puede enviar simultáneamente \resalt{n} bits en el canal de datos, y \resalt{m} en el de transmisión.
+%
+\section{El integrado DS34C87T}
+%
+El DS34C87T es un \ldots
+
+Soporta la norma \ldots
+%
+\section{El integrado 16550D}
+%
+\ldots
+%
+\section{El integrado DP83848J}
+%
+\ldots
+%
+\section{El integrado MAX232}
+%
+\ldots
+%
+\section{Análisis de circuito}
+%
+\ldots
+%
+\end{document}
