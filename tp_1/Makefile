@@ -1,5 +1,5 @@
 # el nombre de archivo de salida, sin extensión:
-out = salida
+out = main
 # nombre de los archivos fuente, sin/con extensión:
 fuente = main
 dep = conf/config.tex conf/packages.tex conf/comandos.tex
@@ -24,14 +24,18 @@ pdf : dvi
 # archivo intermedio:
 dvi : $(fuente).tex $(dep)
 	$(cc) $(fuente).tex
+ifneq ($(fuente), $(out))
 	mv $(fuente).dvi $(out).dvi
+endif
 	rm $(fuente).aux $(aux)
 	rm $(fuente).log
 
 # pdflatex:
 pdflatex : $(fuente).tex $(dep)
 	$(ccpdf) $(fuente).tex
+ifneq ($(fuente), $(out))
 	mv $(fuente).pdf $(out).pdf
+endif
 	rm $(fuente).aux $(aux)
 	rm $(fuente).log
 
