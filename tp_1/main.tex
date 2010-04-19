@@ -33,31 +33,44 @@
 % crear la página de título
 \maketitle
 %
+\newcommand{\ic}{DS920LV010A} %Ejemplo de cómo definir un comando para tipear nombres chotos
 % 
-\section{El integrado DS92LV010A}
+\section{El integrado \ic}
 %
-El DS920LV010A es un transceiver de voltajes TTL/CMOS a LVDS --- \desc{Señal diferencial de bajo voltaje}
-diseñado para buses tipo \eng{backplane} como los que podemos encontrar en switches, por ejemplo.
+El \ic es un transceiver de voltajes TTL/CMOS a LVDS --- \desc{Señal diferencial de bajo voltaje}.
+%diseñado para buses tipo \eng{backplane} como los que podemos encontrar en switches, por ejemplo.
+
+Funcionando como transmisor (\eng{driver}, 2V$\leq$DE$\leq$Vcc), recibe una entrada en voltaje TTL
+(Vcc=5V) ó CMOS (Vcc=3.3V) en Din y otorga una salida LVDS ($\geq$+100mV y $\leq$-100mV) en los terminales DO+ y DO-.
+En modo receptor (RE=GND) recibe un voltaje diferencial en RI+, RI- y entrega una salida Vcc en el
+pin Rout.
 %
 \begin{description}
-\item[Voltaje de operación] El integrado se puede alimentar con 3.3V ó 5V. La salida LVDS \resalt{ver los voltajes}.
-\item[Umbral de recepción (sensibilidad)] $\pm 100$mV
-\item[Encapsulado] tipo SOIC de 8 pines.
+\item[Voltaje de operación] El integrado se puede alimentar con 3.3V (CMOS) ó 5V (TTL).
+\item[Umbral de recepción (sensibilidad)] Las entradas/salidas LVDS deben ser de al menos $\pm 100$mV.
+\item[Encapsulado] tipo SOIC\footnote{SOIC es un tipo de encapsulado de montaje superficial. (\url{http://en.wikipedia.org/wiki/Small-outline_integrated_circuit})} de 8 pines.
 \end{description}
 %
+\resalt{comentar acerca de las tablas de estado lógico 1, 2, 3.}
+%
 \begin{figure}[h]
+\includegraphics[width=15cm]{img/ej1a}
 \caption{Dibujo esquemático de una configuración típica punto a punto}
 \end{figure}
 %
-\begin{figure}[h]
+\begin{figure}[H]
+\includegraphics[width=15cm]{img/ej1b}
 \caption{Dibujo esquemático de una configuración típica multi-disposititvo}
 \end{figure}
 %
-\section{El integrado DS90CR283}
+\renewcommand{\ic}{DS90CR283} %Ejemplo de cómo redefinir lo que hace un comando
+\section{El integrado \ic}
 %
-El DS920LV0 es un \ldots
+El \ic es un transmisor que convierte 28 bits de datos en niveles CMOS/TTL a cuatro canales de datos
+LVDS. Tiene un quinto salida que lleva una señal de clock LVDS. En cada ciclo de clock convierte los 28
+valores que recibe en paralelo en la entrada multiplexándolos el los 4 canales de datos TTL.
 
-Soporta la norma \ldots
+Soporta la norma TIA/EIA-644 para LVDS \resalt{ver esta norma y agregar algún comentario, digo yo...}
 
 Puede enviar simultáneamente \resalt{n} bits en el canal de datos, y \resalt{m} en el de transmisión.
 %
