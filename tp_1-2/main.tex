@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+%
+% importar el archivo conf/packages.tex
+\include{conf/packages}
+%
+% ===
+% === Propiedades del documento: título, autor, etc
+% ===
+%
+\newcommand{\titulo}{{\large FICH --- UNL}\\Redes y Comunicación de Datos 2 -- 2010\\%
+{\large TP1-2. "El bus SCSI."}}
+\newcommand{\autor}{Fornal, Esteban \and Mastaglia, Nicolás \and Pfarher, Christian \and Torrez, Mauro}
+\newcommand{\fecha}{\today}
+\newcommand{\tituloPDF}{Redes 2 1010 - TP1}
+\newcommand{\autorPDF}{Fornal -- Mastaglia -- Pfarher -- Torrez}
+\newcommand{\asuntoPDF}{TP 1-2 de Redes 2 2010}
+\newcommand{\clavesPDF}{redes tp 1-2}
+%
+% importar los archivos conf/config.tex y conf/comandos.tex
+\include{conf/config}
+\include{conf/comandos}
+%
+% ===
+% === Inicio del documento
+% === 
+%
+% todo lo que siga a esto hasta \end{document} será ``typeseteado'' por LaTeX/pdfLaTeX
+\begin{document}
+%
+% pongo letra sans-serif (porque sí nomás)
+\sffamily
+%
+% crear la página de título
+\maketitle
+%
+% 
+\section{Disco rígido Seagate ST39173W}
+CONTROLADORA: INTERFACE Ultra SCSI Wide (68 pin)\\
+Jumper setting adress: 1era hoja 50916A14.pdf
+%
+\section{Disco rígido Seagate ST19171WC}
+tipo de controlador: Controller           SCSI3 WI/ULTR/SCA/FA 
+Ver en las fotocopias…
+\\
+MTBF (acrónimo de Mean Time Between Failures) es la media aritmética (promedio) del tiempo entre fallos de un sistema. El MTBF es típicamente parte de un modelo que asume que el sistema fallido se repara inmediatamente (el tiempo transcurrido es cero), como parte de un proceso de renovación. En cambio, el MTTF (Mean Time To Failure) mide el tiempo medio entre fallo con la suposición de un modelo en que el sistema fallido no se repara.
+%
+\section{Servidor Compaq DL360}
+\begin{enumerate}
+\item[a] Smart Array 5i Controller 
+(integrated on system board)
+ProtocolWide Ultra3 SCSI. SCSI Port Connectors One external and one internal SCSI port
+NOTE: The ProLiant DL360 Generation 2 (G2) does not offer an external SCSI port.
+\item[b] F10
+\item[c]
+\item[d]RAID SupportRAID 5 (Distributed Data Guarding)
+NOTE: A minimum of 3 hard drives are required for RAID 5 and only 2 are supported on the ProLiant DL360 Generation 2 (G2). Therefore RAID 5 is not supported on the ProLiant DL360 Generation 2 (G2). 
+RAID 1+0 (Striping and Mirroring)
+RAID 1 (Mirroring)
+RAID 0 (Stripping)
+\end{enumerate}
+%
+\section{Configuracion de dispositivos}
+\begin{enumerate}
+\item[a]
+\item[b]
+\item[c]
+\item[d]
+\item[e]
+\item[f]
+\end{enumerate}
+%
+\end{document}
