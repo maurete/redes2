@@ -35,11 +35,31 @@
 %
 % 
 \section{Disco rígido Seagate ST39173W}
-CONTROLADORA: INTERFACE Ultra SCSI Wide (68 pin)\\
-Jumper setting adress: 1era hoja 50916A14.pdf
+Controladora: Interface Ultra SCSI Wide (68 pines)
+\begin{figure} \begin{center}
+\includegraphics[scale=1]{imgs/st39173w_pines.eps} 
+\caption{Configuracon de Jumpers del Disco Seagate ST39173W}
+\end{center}
+\end{figure}
+
 %
 \section{Disco rígido Seagate ST19171WC}
-tipo de controlador: Controller           SCSI3 WI/ULTR/SCA/FA 
+\begin{itemize}
+\item Tipo de controlador: Controller SCSI3 WI/ULTR/SCA/FA
+\item Cache/Buffer: 2048 KB Multi-Segment
+\item Capacidad Formateado: 9100 MB
+\item Capacidad No Formateado: 11700 MB
+\item Velocidad de transferencia de datos interna: 8500 MB/s 
+\item Velocidad de transferencia de datos externa: 40000 MB/s SYNC
+\item Banco de Jumpers J2 - Combinación para protección contra escritura:
+\begin{figure} \begin{center}
+\includegraphics[scale=1]{imgs/pinesst19171wc.eps} 
+\caption{Configuracon de Jumpers del Disco Seagate ST39173W}
+\end{center}
+\end{figure}
+\item MTBF: 1000000 horas
+\end{itemize}
+
 Ver en las fotocopias…
 \\
 MTBF (acrónimo de Mean Time Between Failures) es la media aritmética (promedio) del tiempo entre fallos de un sistema. El MTBF es típicamente parte de un modelo que asume que el sistema fallido se repara inmediatamente (el tiempo transcurrido es cero), como parte de un proceso de renovación. En cambio, el MTTF (Mean Time To Failure) mide el tiempo medio entre fallo con la suposición de un modelo en que el sistema fallido no se repara.
