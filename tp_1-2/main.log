@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.3.28)  20 APR 2010 00:20
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2010.3.28)  20 APR 2010 00:37
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -707,14 +707,14 @@ File: imgs/pinesst19171wc.eps Graphic file (type eps)
 
 
 
-] [2] [3] (./main.aux) ) 
+] [2] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5970 strings out of 95087
- 74646 string characters out of 1183278
- 151539 words of memory out of 1500000
- 9041 multiletter control sequences out of 10000+50000
- 8573 words of font info for 31 fonts, out of 1200000 for 2000
+ 5972 strings out of 95087
+ 74668 string characters out of 1183278
+ 149539 words of memory out of 1500000
+ 9043 multiletter control sequences out of 10000+50000
+ 9027 words of font info for 33 fonts, out of 1200000 for 2000
  28 hyphenation exceptions out of 8191
- 38i,8n,45p,464b,381s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 38i,8n,45p,507b,373s stack positions out of 5000i,500n,6000p,200000b,5000s
 
-Output written on main.dvi (3 pages, 4888 bytes).
+Output written on main.dvi (2 pages, 4916 bytes).
