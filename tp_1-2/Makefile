@@ -33,6 +33,7 @@ endif
 # pdflatex:
 pdflatex : $(fuente).tex $(dep)
 	$(ccpdf) $(fuente).tex
+	$(ccpdf) $(fuente).tex
 ifneq ($(fuente), $(out))
 	mv $(fuente).pdf $(out).pdf
 endif

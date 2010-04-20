@@ -8,7 +8,7 @@
 % ===
 %
 \newcommand{\titulo}{{\large FICH --- UNL}\\Redes y Comunicación de Datos 2 -- 2010\\%
-{\large TP1-2. "El bus SCSI."}}
+{\large TP1-2: El bus SCSI}}
 \newcommand{\autor}{Fornal, Esteban \and Mastaglia, Nicolás \and Pfarher, Christian \and Torrez, Mauro}
 \newcommand{\fecha}{\today}
 \newcommand{\tituloPDF}{Redes 2 1010 - TP1}
@@ -37,53 +37,63 @@
 \section{Disco rígido Seagate ST39173W}
 Controladora: Interface Ultra SCSI Wide (68 pines)
 \begin{figure}[H] \begin{center}
-\includegraphics[scale=1]{imgs/st39173w_pines} 
-\caption{Configuracon de Jumpers del Disco Seagate ST39173W}
+\includegraphics[height=130mm]{imgs/st39173w_pines} 
+\caption{Configuración de Jumpers del Disco Seagate ST39173W}
 \end{center}
 \end{figure}
-
 %
 \section{Disco rígido Seagate ST19171WC}
-\begin{itemize}
-\item Tipo de controlador: Controller SCSI3 WI/ULTR/SCA/FA
-\item Cache/Buffer: 2048 KB Multi-Segment
-\item Capacidad Formateado: 9100 MB
-\item Capacidad No Formateado: 11700 MB
-\item Velocidad de transferencia de datos interna: 8500 MB/s 
-\item Velocidad de transferencia de datos externa: 40000 MB/s SYNC
-\item Banco de Jumpers J2 - Combinación para protección contra escritura:
+\begin{description}
+\item[Tipo de controlador:] Controller SCSI3 WI/ULTR/SCA/FA
+\item[Cache/Buffer:] 2048 KB Multi-Segment
+\item[Capacidad Formateado:] 9100 MB
+\item[Capacidad No Formateado:] 11700 MB
+\item[Velocidad de transferencia de datos interna:] 8500 MB/s 
+\item[Velocidad de transferencia de datos externa:] 40000 MB/s SYNC
+\item[Banco de Jumpers J2:] En la figura \ref{protescritura} vemos la ubicación
+  de este banco de jumpers y la combinación para protección contra escritura.
+\item[MTBF%
+  \footnote{MTBF --\eng{Mean Time Between Failures}-- es la media
+    aritmética (promedio) del tiempo entre fallos de un sistema. El MTBF es
+    típicamente parte de un modelo que asume que el sistema fallido se repara
+    inmediatamente (el tiempo transcurrido es cero), como parte de un proceso 
+    de renovación. En cambio, el MTTF (\eng{Mean Time To Failure}) mide el tiempo
+    medio entre fallo con la suposición de un modelo en que el sistema fallido 
+    no se repara.}:]%
+  1000000 horas
+\end{description}
+%
 \begin{figure}[H] \begin{center}
 \includegraphics[scale=0.75]{imgs/pinesst19171wc} 
-\caption{Configuracon de Jumpers del Disco Seagate ST39173W}
 \end{center}
+\caption{Configuración de Jumpers del Disco Seagate ST39173W}
+\label{protescritura}
 \end{figure}
-\item MTBF \footnote{MTBF (acrónimo de Mean Time Between Failures) es la media aritmética (promedio) del tiempo entre fallos de un sistema. El MTBF es típicamente parte de un modelo que asume que el sistema fallido se repara inmediatamente (el tiempo transcurrido es cero), como parte de un proceso de renovación. En cambio, el MTTF (Mean Time To Failure) mide el tiempo medio entre fallo con la suposición de un modelo en que el sistema fallido no se repara.}: 1000000 horas
-\end{itemize}
 %
 \section{Servidor Compaq DL360}
-\begin{enumerate}
-\item[a] Smart Array 5i Controller (integrated on system board).
+\begin{enumerateabc}
+\item Smart Array 5i Controller (integrated on system board).
 ProtocolWide Ultra3 SCSI. SCSI Port Connectors One external and one internal SCSI port
 NOTE: The ProLiant DL360 Generation 2 (G2) does not offer an external SCSI port.
-\item[b] F10
-\item[c] \resalt{ corregir esto no estoy seguro que va...ID0 e ID 6 }
-\item[d] Soporta: \begin{itemize}
+\item F10
+\item \resalt{ corregir esto no estoy seguro que va...ID0 e ID 6 }
+\item Soporta: \begin{itemize}
 \item RAID 5 (Distributed Data Guarding). Un mínimo de 3 discos son requeridos para RAID 5 y solo 2 son soportados en ProLiant DL360 Generación 2 (G2). Por lo tanto RAID 5 no esta soportado en la ProLiant DL360 Generación 2 (G2).
 \item RAID 1+0 (Striping and Mirroring)
 \item RAID 1 (Mirroring)
 \item RAID 0 (Stripping)
 \end{itemize}
-\end{enumerate}
+\end{enumerateabc}
 %
 \section{Configuracion de dispositivos}
-\begin{enumerate}
-\item[a] Controladora: \resalt {Smart Array 5i Controller (integrated on system board)}
-\item[b] Cantidad de dispositivos soportados: \resalt { Wide Ultra3 SCSI Drive Cage standard supports up to two 1" Wide Ultra3/Ultra320 hot plug hard drives
+\begin{enumerateabc}
+\item Controladora: \resalt {Smart Array 5i Controller (integrated on system board)}
+\item Cantidad de dispositivos soportados: \resalt { Wide Ultra3 SCSI Drive Cage standard supports up to two 1" Wide Ultra3/Ultra320 hot plug hard drives
 Internal hot plug capacity up to 293.6 GB (2 x 146.8-GB 1" HD)}
-\item[c] \resalt {Tipo de conector: Un puerto interno y un puerto Externo SCSI. En el caso de ProLiant DL360 G2 no ofrece el conector externo}
-\item[d] Número de ID asignado a los dispositivos actuales: ID3 e ID6 para los discos, ID0 para la controladora.
-\item[e] Selección del ancho de bus (8 o 16 bits): \resalt{Si la opción está en NO corresponde a 8. En el caso que este en YES negocia la velocidad máxima.}
-\item[f] Velocidad máxima de transferencia: 160 MB/s por canal (Posee 2 canales).
-\end{enumerate}
+\item \resalt {Tipo de conector: Un puerto interno y un puerto Externo SCSI. En el caso de ProLiant DL360 G2 no ofrece el conector externo}
+\item Número de ID asignado a los dispositivos actuales: ID3 e ID6 para los discos, ID0 para la controladora.
+\item Selección del ancho de bus (8 o 16 bits): \resalt{Si la opción está en NO corresponde a 8. En el caso que este en YES negocia la velocidad máxima.}
+\item Velocidad máxima de transferencia: 160 MB/s por canal (Posee 2 canales).
+\end{enumerateabc}
 %
 \end{document}
