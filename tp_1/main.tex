@@ -76,9 +76,12 @@ Puede enviar simultáneamente \resalt{n} bits en el canal de datos, y \resalt{m}
 %
 \section{El integrado DS34C87T}
 %
-El DS34C87T es un \ldots
+El DS34C87T es un conversor \resalt{transceiver se puede decir?} de señales con voltajes TTL ó CMOS a
+señales diferenciales según especifica la norma RS-422.
 
-Soporta la norma \ldots
+Posee cuatro entradas TTL/CMOS A, B, C y D y cuatro pares de salidas diferenciales A, B, C y D.
+Se alimenta con 5V y tiene dos entradas que sirven para habilitar (cuando están en alto) las entradas
+A y B, y C y D respectivamente. 
 %
 \section{El integrado 16550D}
 %
@@ -86,7 +89,14 @@ Soporta la norma \ldots
 %
 \section{El integrado DP83848J}
 %
-\ldots
+El DP83848J es un transceiver de señales Ethernet a CMOS. Se conecta por un lado al puerto RJ45, y por
+el otro a la controladora Ethernet de la placa de red/motherboard, o directamente al SouthBridge\resalt{?}.
+
+También posee conectores para unos LEDs indicadores de estado, uno indicando enlace/actividad ---pin
+LED\_SPEED--- y el otro la velocidad ---pin LED\_LINK, prendido si se está trabajando a 100Mbit/s.
+
+Viendo la figura 8 en la hoja de datos, podemos decir que la atenuación típica en el cable UTP es una
+función logarítmica de la frecuencia, y aumentando proporcionalmente según la longitud del cable.
 %
 \section{El integrado MAX232}
 %
