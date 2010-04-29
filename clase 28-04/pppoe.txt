@@ -1,0 +1,20 @@
+PPPoe
+En la pc y router cliente hay que crear un usuario
+en el mommento que el ususario quiree se conecta contra el servidor y empeiza a trabajar
+Porque utilizamos PPOE?
+En el pppoe armamos una estructura de tipo estrella. Todos se tiene que conectar con multiples conexiones a una independiente a al estrella y apartr de esa estrella salimos a otra red
+El trafico es siempre a traves del equipo de la estrella, entre lo ususarios no se pueden conectar ya que no tiene numero IP.
+//TEnes capa 2 nativa para hacer el pto a pto y tenes la capa 2 para conectarte al switch
+Aparte conozco a que hora se desocnecto y a que hora se conecto un ierto usuario. el trafico tiene que venir si o si al servidor para poder conectarse entre ellos
+otra utilidad porque arnet utiliza ppoe. Ellos transimiten una capa 2 sobre otra capa 2.
+PPPoE (Point-to-Point Protocol over Ethernet o Protocolo Punto a Punto sobre Ethernet) es un protocolo de red para la encapsulación PPP sobre una capa de Ethernet. Es utilizada mayormente para proveer conexión de banda ancha mediante servicios de cablemódem y xDSL. Este ofrece las ventajas del protocolo PPP como son la autenticación, cifrado, mantención y compresión.
+En esencia, es un protocolo túnel, que permite implementar una capa IP sobre una conexión entre dos puertos Ethernet, pero con las características de software del protocolo PPP, por lo que es utilizado para virtualmente "marcar" a otra máquina dentro de la red Ethernet, logrando una conexión "serial" con ella, con la que se pueden transferir paquetes IP, basado en las características del protocolo PPP.
+Esto permite utilizar software tradicional basado en PPP para manejar una conexión que no puede usarse en líneas seriales pero con paquetes orientados a redes locales como Ethernet para proveer una conexión clásica con autenticación para cuentas de acceso a Internet. Además, las direcciones IP en el otro lado de la conexión sólo se asignan cuando la conexión PPPoE es abierta, por lo que admite la reutilización de direcciones IP (direccionamiento dinámico).
+
+
+<ver apunte de chaco> -> por el grafico
+
+
+
+
+

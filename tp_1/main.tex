@@ -19,6 +19,7 @@
 % importar los archivos conf/config.tex y conf/comandos.tex
 \include{conf/config}
 \include{conf/comandos}
+%\usepackage{pandora} %newcent, palatino, bookman, helvet
 %
 % ===
 % === Inicio del documento
@@ -28,10 +29,12 @@
 \begin{document}
 %
 % pongo letra sans-serif (porque sí nomás)
-\sffamily
+%\sffamily
+%\rhead{prueba}
+%\pagestyle{fancy}
 %
 % crear la página de título
-\maketitle
+\maketitle\thispagestyle{fancy}
 %
 \newcommand{\ic}{DS920LV010A} %Ejemplo de cómo definir un comando para tipear nombres chotos
 % 
@@ -74,6 +77,7 @@ Soporta la norma TIA/EIA-644 para LVDS \resalt{ver esta norma y agregar algún c
 
 Puede enviar simultáneamente \resalt{n} bits en el canal de datos, y \resalt{m} en el de transmisión.
 %
+\rhead{cambio el encabezado}
 \section{El integrado DS34C87T}
 %
 El DS34C87T es un conversor \resalt{transceiver se puede decir?} de señales con voltajes TTL ó CMOS a

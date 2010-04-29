@@ -1,0 +1,31 @@
+1) Numeracion y descripcion de los pasos que realizo para cumplimentar las practicas
+2) Enumere y descria a los inconvenientes que se le presntaron al realizar cada practca
+3) Enumere y describa las soluciones a los distintos problemas que se le presentaron..
+
+En general los inconvenientes fueron parecidos en ambos ejercicios y son los siguientes:
+Las conexiones entre Maquina administradora (en la que se instalo el Winbox) para la administracion del router Mikrotic debe ser realizada mediante cable Cruzado.
+Mal funcionamiento o contacto incorrecto de las placas de Red, o cables que no funcionaban.
+Problemas de coordinacion de Numeros IP con otros routers de otros grupos
+Problemas en tablas de routeo - mal configuradas
+En un momemnto el ping no llegaba tener la MTU seteada a 500.
+
+Pasos de configuracion del router:
+1- Se setearon los numeros IP en las diferentes interfaces en la Opcion IP Addresses del Winbox -img01
+2- Segun los diagramas que fueron coordinados con otros grupos, se setearon las entradas para llegar a diferntes redes en la tabla de routeo del router. Dicha opcion se encuentra en IP Routes.= del Winbox. img2
+3- Luego se procedio a la creacion de los diferentes tuneles con protocolos PPTP y L2TP.
+Para la configuracion de los tuneles se siguieron los pasos que se detallan a continuacion:
+En el menu PPP se agrega en la pestania interfaces con el + un L2TP server. img3
+En la pestana secrets se crea el nombre de usuario y contasenia con el que otros usuarios accederan al tunel creado.
+En la pestana profiles se edita el profile default poniendo en Local Adress la direccion IP correspondiente a nuestro lado y en remote adrees la correspondiente a la direccion remota.. (punta donde se conecta) img06
+En la opcion ip pool se crea un pool de direcciones para que un usuario se pueda conectar simultanemanete desede varios lugares. img07
+Si en vez de poner un pool de direcciones pongo una sola direccion remota, solo se podra conectar al tunel una sola ip, por ello se usa lo del pool.,...
+
+
+Tambien se realizaron pasos similares creando Clientes L2TP y PPTP para conectares a servidores hecho por otros grupos.
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+Configuracion de protocolo PPPoe.
+Para crear el cliente PPPOe se va a la opcion PPP opcion interface, y se agrega un cliente PPPOE configurando el nombre de usuario y contrasenia que fue dadadpor el servidor PPPOe estableciendose asi la conexion.
+
+Luego se procede a Crear el servidor, y realizar el proceso inverso. Para ello en el servidor se crean diferentes secrets (contrasenas, nombre de usuario) e ip que se otorgara a los uusarios que deseen acceder ....
+
+ 
