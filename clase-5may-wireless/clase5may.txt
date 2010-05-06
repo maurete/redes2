@@ -1,0 +1,12 @@
+802.1af - 48 volt
+POE - power on ethernet. Antena bidireccional mostrada en clases.
+
+conector 123 ->Tx, 4-5 (+)
+conector 6 -> RX,  7 y 8 (-)
+Hya que usar el conector del fabricante y no el switch que trae POE porque sino lo podes quemar... este el de clases usa 12 V no 48!
+Tampoco se puede enviar el cable que dice poe a una placa de red de una pc porque no sabemos a donde estan conectados esos conectores
+donde dice LAN es para el lado de la PC, donde dice POE va hacia el equipo (ojo mirar que el marron y el azul no esten cambidos porque lo quemo si pasa eso) estoy mandando negativo a donde va positivo y viceversa. (Usar la norma 125a o b)
+Cauntos metros de cable ethernet puedo tener?': depende del consumo del aparato. Porque si tengo 90 metros de cable ethernet no va a llegar corriente. Son para tramos cortos - 11, 15 m no mas de 20m (en ves de llegar 11 v llegan 9 y no enciende.
+Inyector POE Activo y inyector POE pasivo
+Tambien existen switchs que agregan poes.
+
