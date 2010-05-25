@@ -54,8 +54,6 @@ pin Rout.
 \item[Encapsulado] tipo SOIC\footnote{SOIC es un tipo de encapsulado de montaje superficial. (\url{http://en.wikipedia.org/wiki/Small-outline_integrated_circuit})} de 8 pines.
 \end{description}
 %
-\resalt{comentar acerca de las tablas de estado lógico 1, 2, 3.}
-%
 \begin{figure}[h]
 \includegraphics[width=15cm]{img/ej1a}
 \caption{Dibujo esquemático de una configuración típica punto a punto}
@@ -73,14 +71,14 @@ El \ic es un transmisor que convierte 28 bits de datos en niveles CMOS/TTL a cua
 LVDS. Tiene un quinto salida que lleva una señal de clock LVDS. En cada ciclo de clock convierte los 28
 valores que recibe en paralelo en la entrada multiplexándolos el los 4 canales de datos TTL.
 
-Soporta la norma TIA/EIA-644 para LVDS \resalt{ver esta norma y agregar algún comentario, digo yo...}
+Soporta la norma TIA/EIA-644 para LVDS(LVDS [EIA-644], Low Voltage Differential Signaling; 3.5mA drive, at 655Mbps max, Point-to-Point)
 
 Puede enviar simultáneamente \resalt{n} bits en el canal de datos, y \resalt{m} en el de transmisión.
 %
 \rhead{cambio el encabezado}
 \section{El integrado DS34C87T}
 %
-El DS34C87T es un conversor \resalt{transceiver se puede decir?} de señales con voltajes TTL ó CMOS a
+El DS34C87T es un conversor de señales con voltajes TTL ó CMOS a
 señales diferenciales según especifica la norma RS-422.
 
 Posee cuatro entradas TTL/CMOS A, B, C y D y cuatro pares de salidas diferenciales A, B, C y D.
@@ -89,18 +87,32 @@ A y B, y C y D respectivamente.
 %
 \section{El integrado 16550D}
 %
-\ldots
+Las tensiones mínimas y máximas respectivamente para este integrado van de -0.5 v. a 7.0 v.
+En las figuras siguientes se pueden observar las características eléctricas y el direccionamiento.
+
+\includegraphics[width=15cm]{img/direccion.pdf}
+\caption{Direcciones de Registro}
+\end{figure}
+
+\includegraphics[width=15cm]{img/analisis}
+\caption{Características Eléctricas}
+\end{figure}
 %
 \section{El integrado DP83848J}
 %
 El DP83848J es un transceiver de señales Ethernet a CMOS. Se conecta por un lado al puerto RJ45, y por
-el otro a la controladora Ethernet de la placa de red/motherboard, o directamente al SouthBridge\resalt{?}.
-
+el otro a la controladora Ethernet de la placa de red/motherboard, o directamente al SouthBridge
+\includegraphics[width=15cm]{img/teapli}
+\caption{Diagrama de Sistema - Típica aplicación ethernet}
+\end{figure}
 También posee conectores para unos LEDs indicadores de estado, uno indicando enlace/actividad ---pin
 LED\_SPEED--- y el otro la velocidad ---pin LED\_LINK, prendido si se está trabajando a 100Mbit/s.
 
 Viendo la figura 8 en la hoja de datos, podemos decir que la atenuación típica en el cable UTP es una
 función logarítmica de la frecuencia, y aumentando proporcionalmente según la longitud del cable.
+\includegraphics[width=15cm]{img/atenuacion}
+\caption{Figura 8 de la Hoja de datos del integrado}
+\end{figure}
 %
 \section{El integrado MAX232}
 %
