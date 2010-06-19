@@ -1,5 +1,5 @@
 1) Numeracion y descripcion de los pasos que realizo para cumplimentar las practicas
-2) Enumere y descria a los inconvenientes que se le presntaron al realizar cada practca
+2) Enumere y describa los inconvenientes que se le presntaron al realizar cada practca
 3) Enumere y describa las soluciones a los distintos problemas que se le presentaron..
 
 En general los inconvenientes fueron parecidos en ambos ejercicios y son los siguientes:
